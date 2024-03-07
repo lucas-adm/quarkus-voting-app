@@ -101,6 +101,11 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+            <version>3.8.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
