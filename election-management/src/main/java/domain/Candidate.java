@@ -15,4 +15,5 @@ public record Candidate(
     public static Candidate create(Optional<String> photo, String givenName, String familyName, String email, Optional<String> phone, Optional<String> jobTitle) {
         return new Candidate(UUID.randomUUID().toString(), photo, givenName, familyName, email, phone, jobTitle);
     }
+
 }
