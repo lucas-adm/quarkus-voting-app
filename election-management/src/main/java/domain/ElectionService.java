@@ -8,12 +8,10 @@ public class ElectionService {
 
     private final CandidateService candidateService;
     private final Instance<ElectionRepository> repositories;
-    private final ElectionRepository repository;
 
-    public ElectionService(CandidateService candidateService, Instance<ElectionRepository> repositories, ElectionRepository repository) {
+    public ElectionService(CandidateService candidateService, Instance<ElectionRepository> repositories) {
         this.candidateService = candidateService;
         this.repositories = repositories;
-        this.repository = repository;
     }
 
     public void submit() {
