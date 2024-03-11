@@ -1,7 +1,7 @@
 package infrastructure.lifecycle;
 
 import domain.Election;
-import infrastructure.lifecycle.repositories.RedisElectionRepository;
+import infrastructure.repositories.RedisElectionRepository;
 import io.quarkus.redis.datasource.ReactiveRedisDataSource;
 import io.quarkus.runtime.Startup;
 import io.smallrye.mutiny.Multi;
@@ -27,7 +27,7 @@ public class Subscribe {
         sub.emitOn(Infrastructure.getDefaultWorkerPool())
                 .subscribe()
                 .with(id -> {
-                    LOGGER.info("Election" + id + " received from subscription");
+                    LOGGER.info("Election " + id + " received from subscription");
                     Election election = repository.findById(id);
                     LOGGER.info("Election " + election.id() + " starting");
                 });
@@ -38,7 +38,6 @@ public class Subscribe {
         //            Election election = repository.findById(id);
         //            LOGGER.info("Election " + election.id() + " starting");
         //        });
-
     }
 
 }
