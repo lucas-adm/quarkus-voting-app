@@ -37,31 +37,31 @@ services:
       - traefik.http.routers.election-management.rule=Host(`vote.dio.localhost`) && PathPrefix(`/api`)
       - traefik.http.routers.election-management.entrypoints=web
 
-  voting-app:
-    extends:
-      file: common.yml
-      service: quarkus
-    build:
-      context: ./voting-app
-      # dockerfile: src/main/docker/Dockerfile.native
-      dockerfile: src/main/docker/Dockerfile.jvm
-    image: dio/voting-app:${TAG:-1.0.0}
-    labels:
-      - traefik.http.routers.voting-app.rule=Host(`vote.dio.localhost`) && PathPrefix(`/api/voting`)
-      - traefik.http.routers.voting-app.entrypoints=web
-
-  result-app:
-    extends:
-      file: common.yml
-      service: quarkus
-    build:
-      context: ./result-app
-      # dockerfile: src/main/docker/Dockerfile.native
-      dockerfile: src/main/docker/Dockerfile.jvm
-    image: dio/result-app:${TAG:-1.0.0}
-    labels:
-      - traefik.http.routers.result-app.rule=Host(`vote.dio.localhost`) && Path(`/`)
-      - traefik.http.routers.result-app.entrypoints=web
+#  voting-app:
+#    extends:
+#      file: common.yml
+#      service: quarkus
+#    build:
+#      context: ./voting-app
+#      # dockerfile: src/main/docker/Dockerfile.native
+#      dockerfile: src/main/docker/Dockerfile.jvm
+#    image: dio/voting-app:${TAG:-1.0.0}
+#    labels:
+#      - traefik.http.routers.voting-app.rule=Host(`vote.dio.localhost`) && PathPrefix(`/api/voting`)
+#      - traefik.http.routers.voting-app.entrypoints=web
+#
+#  result-app:
+#    extends:
+#      file: common.yml
+#      service: quarkus
+#    build:
+#      context: ./result-app
+#      # dockerfile: src/main/docker/Dockerfile.native
+#      dockerfile: src/main/docker/Dockerfile.jvm
+#    image: dio/result-app:${TAG:-1.0.0}
+#    labels:
+#      - traefik.http.routers.result-app.rule=Host(`vote.dio.localhost`) && Path(`/`)
+#      - traefik.http.routers.result-app.entrypoints=web
 
   # DATABASE - https://quarkus.io/guides/datasource
 
